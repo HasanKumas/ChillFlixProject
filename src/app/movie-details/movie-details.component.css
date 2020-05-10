@@ -1,0 +1,39 @@
+.outer-div {
+  width: 100%;
+  text-align: center;
+}
+
+.inner-div {
+  display: inline-block;
+  margin-top: 1px;
+  padding: 3px;
+  text-align: left;
+}
+
+.selectedMovieInfo {
+  text-decoration-color: darkgoldenrod;
+  background-color: blue;
+  opacity: 0.5;
+}
+
+.back-size {
+  height: 10cm;
+  width: 10cm;
+  margin-top: 1px;
+  overflow: hidden;
+  display: inline-block;
+  margin-top: 3px;
+  padding-top: 3px;
+  text-align: left;
+  position: static;
+  vertical-align: middle;
+}
+
+.star-rating {
+  line-height: 32px;
+  font-size: 1.25em;
+}
+
+.star-rating .fa-star {
+  color: yellow;
+}

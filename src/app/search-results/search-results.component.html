@@ -1,0 +1,16 @@
+<div *ngIf="movie" class="outer-div back-size" [ngStyle]="{background: youtubeThumbUrl}">
+
+  <div class="inner-div" style="max-width: 10cm; z-index: 1">
+    <h3 class="card-title" style="background-color: steelblue">{{ movie.title }}</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Year: {{ movie.year }}</li>
+      <li class="list-group-item">Description: {{ movie.description }}</li>
+      <li class="list-group-item">Rating: {{ movie.rating }}</li>
+    </ul>
+    <a href="#" class="btn btn-primary">Rate</a>
+  </div>
+  <div class="inner-div">
+    <iframe width="560" height="415" [src]="youtubeUrl | safe: 'resourceUrl'" frameborder="1"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>

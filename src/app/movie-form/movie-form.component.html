@@ -1,0 +1,43 @@
+<form [formGroup]="form" class="formMovie">
+  <h2>Movie Management</h2>
+  <div class="form-group">
+    <label class="col-form-label">Movie Title</label>
+    <input type="text" class="form-control" placeholder="Title" value="editableMovie.title" formControlName="title">
+    <span style="color: red;" *ngIf="form.controls.title.invalid">Invalid
+      input!!</span><br />
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Select Category</label>
+    <select class="form-control" id="exampleSelect1" value="editableMovie.category.name" formControlName="category">
+      <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">Movie Year</label>
+    <input type="number" class="form-control" placeholder="Year" value="editableMovie.year" formControlName="year">
+    <span style="color: red;" *ngIf="form.controls.year.invalid">Invalid
+      input!!</span><br />
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">Movie Rating</label>
+    <input type="number" class="form-control" placeholder="Rating" value="editableMovie.rating"
+      formControlName="rating">
+    <span style="color: red;" *ngIf="form.controls.rating.invalid">Invalid
+      input!!</span><br />
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">Movie Description</label>
+    <input type="text" class="form-control" placeholder="Description" value="editableMovie.description"
+      formControlName="description">
+    <span style="color: red;" *ngIf="form.controls.description.invalid">Invalid
+      input!!</span><br />
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">Movie ID</label>
+    <input type="text" class="form-control" placeholder="Movie ID" value="editableMovie.url" formControlName="url">
+    <span style="color: red;" *ngIf="form.controls.url.invalid">Invalid
+      input!!</span><br />
+  </div>
+  <button *ngIf="!editableMovie" [disabled]="form.invalid" (click)="saveMovie()" type="button">Add movie!</button>
+  <button *ngIf="editableMovie" [disabled]="form.invalid" (click)="editMovie()" type="button">Update movie!</button>
+</form>

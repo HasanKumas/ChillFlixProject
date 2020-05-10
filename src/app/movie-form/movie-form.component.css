@@ -1,0 +1,9 @@
+.formMovie{
+  height: auto;
+  width: auto;
+  background-color: rgb(214, 241, 214);
+  font-size: large;
+  font-weight: 500;
+  columns: 14cm;
+  margin-left: auto;
+}
