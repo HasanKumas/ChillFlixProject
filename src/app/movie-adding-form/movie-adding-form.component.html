@@ -1,38 +1,49 @@
-<div class="div-outer">
-  <div class="div-inner1">
-    <app-movie-form *ngIf = "!currentMovie" (save)="addMovie($event)"></app-movie-form>
-
-    <app-movie-form *ngIf = "currentMovie" (edit)="editMovie($event)" [editableMovie] = "currentMovie"></app-movie-form>
-  </div>
-  <div class="div-inner2">
-    <div class="list-group" >
-      <table class="table table-hover" >
-        <thead style="background-color: saddlebrown; color: floralwhite; font-size: 6mm;">
-          <tr>
-            <th scope="col">Thumbnail</th>
-            <th scope="col">Title</th>
-            <th scope="col">Category</th>
-            <th scope="col">Year</th>
-            <th scope="col">Rating</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Edit</th>
-          </tr>
-        </thead>
-        <tbody
-        style="background-color: rgb(57, 72, 87); color: floralwhite; font-size: 5mm;">
-          <tr *ngFor="let movie of movies">
-            <th scope="row"><app-movie [movie]= "movie" style= "max-height: 0.7cm; max-width: 1cm;"></app-movie></th>
-            <td>{{movie.title}}</td>
-            <td>{{movie.category.name}}</td>
-            <td>{{movie.year}}</td>
-            <td>{{movie.rating}}</td>
-            <td><button type="button" class="btn btn-danger" title="delete movie"
-              (click)="delete(movie)">x</button></td>
-            <td><button type="button" class="btn btn-danger" title="edit movie"
-              (click)="edit(movie)">_/</button></td>
-          </tr>
-        </tbody>
-      </table>
+<hr class="my-4">
+<div class="container jumbotron">
+    <button class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="appMovieFormContainer">Show Add Movie Form</button>
+    <div id="appMovieFormContainer" [ngbCollapse]="isCollapsed">
+        <hr class="my-3">
+        <app-movie-form *ngIf="!currentMovie" (save)="addMovie($event)"></app-movie-form>
+        <app-movie-form *ngIf="currentMovie" (edit)="editMovie($event)" [editableMovie]="currentMovie"></app-movie-form>
     </div>
-  </div>
+</div>
+
+<div class="container jumbotron">
+    <div class="div-outer">
+        <div class="div-inner1">
+            <!-- <app-movie-form *ngIf = "!currentMovie" (save)="addMovie($event)"></app-movie-form>
+
+    <app-movie-form *ngIf = "currentMovie" (edit)="editMovie($event)" [editableMovie] = "currentMovie"></app-movie-form> -->
+        </div>
+        <div class="div-inner2">
+            <div class="list-group">
+                <table class="table table-hover">
+                    <thead style="background-color: saddlebrown; color: floralwhite; font-size: 6mm;">
+                        <tr>
+                            <th scope="col">Thumbnail</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: rgb(57, 72, 87); color: floralwhite; font-size: 5mm;">
+                        <tr *ngFor="let movie of movies">
+                            <th scope="row">
+                                <app-movie [movie]="movie" style="max-height: 0.7cm; max-width: 1cm;"></app-movie>
+                            </th>
+                            <td>{{movie.title}}</td>
+                            <td>{{movie.category.name}}</td>
+                            <td>{{movie.year}}</td>
+                            <td>{{movie.rating}}</td>
+                            <td><button type="button" class="btn btn-danger" title="delete movie" (click)="delete(movie)">x</button></td>
+                            <td><button type="button" class="btn btn-danger" title="edit movie" (click)="edit(movie)">_/</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

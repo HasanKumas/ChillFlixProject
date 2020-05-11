@@ -13,6 +13,7 @@ import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirm
   styleUrls: ['./movie-adding-form.component.css'],
 })
 export class MovieAddingFormComponent implements OnInit {
+  public isCollapsed = true;
   public movies: Movie[] = [];
 
   public categories: Category[] = [];
