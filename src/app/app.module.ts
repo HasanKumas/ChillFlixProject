@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ConfirmationModalComponent } from './modals/confirmation-modal/confirmation-modal.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
+import { MoviePlayingComponent } from './movie-playing/movie-playing.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MovieFormComponent } from './movie-form/movie-form.component';
     SearchResultsComponent,
     ConfirmationModalComponent,
     MovieFormComponent,
+    MoviePlayingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,4 @@
-<!-- <app-movie-list (sendCurrentId)="getCurrentMovie($event)"></app-movie-list> -->
-
-<div class="outer-div d-flex justify-content-center align-items-center"
+<div #details class="outer-div d-flex justify-content-center align-items-center"
   [ngStyle]="{background: getYoutubeThumbUrlSanitized(movie.url)}">
   <div class="mySlides w3-animate-opacity">
     <div class="w3-display-left w3-padding w3-hide-small">
@@ -15,29 +13,16 @@
           </ng-template>
         </ngb-rating>
         <hr>
-        <pre style="color: aliceblue;">Rate: <b>{{currentRate}}</b></pre>
+        <pre>Rate: <b>{{currentRate}}</b></pre>
 
         <p><button class="w3-button w3-block w3-red w3-round"
             onclick="document.getElementById('download').style.display='block'">Rate <i class="fa fa-android"></i>
             <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+        <p><button class="w3-button w3-block w3-red w3-round" routerLink="/playing-movies/{{ movie.url }}">Play
+            <i class="fa fa-android"></i>
+            <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
       </div>
     </div>
-  </div>
-  <!-- <div class="inner-div selectedMovieInfo" style="max-width: 10cm; z-index: 1;"> -->
-  <!-- <h3 class="card-title" style="background-color: steelblue;">
-      {{ movie.title }}
-    </h3>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Year: {{ movie.year }}</li>
-      <li class="list-group-item">Description: {{ movie.description }}</li>
-      <li class="list-group-item">Rating: {{ movie.rating }}</li>
-    </ul>
-    <a href="#" class="btn btn-primary">Rate</a>
-    <a href="#" (click)="goBack()" class="card-link">go back</a> -->
-  <!-- </div> -->
-  <div class="inner-div">
-    <iframe width="560" height="415" [src]="youtubeUrl + movie.url | safe: 'resourceUrl'" frameborder="1"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

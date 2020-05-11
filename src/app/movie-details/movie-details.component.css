@@ -29,11 +29,24 @@
   vertical-align: middle;
 }
 
-.star-rating {
-  line-height: 32px;
-  font-size: 1.25em;
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
 }
 
-.star-rating .fa-star {
-  color: yellow;
+.filled {
+  color: #ff781e;
+}
+
+.bad {
+  color: #deb0b0;
+}
+
+.filled.bad {
+  color: #ff1e1e;
+}
+
+.mySlides {
+  width: 560;
+  height: 415;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Movie } from '../shared/models/movie';
@@ -10,29 +10,15 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css'],
-  styles: [
-    `
-      .star {
-        font-size: 1.5rem;
-        color: #b0c4de;
-      }
-      .filled {
-        color: orange;
-      }
-      .bad {
-        color: #deb0b0;
-      }
-      .filled.bad {
-        color: #ff1e1e;
-      }
-    `,
-  ],
 })
 export class MovieDetailsComponent {
   @Input()
   movie: Movie;
   youtubeUrl = 'https://www.youtube.com/embed/';
   currentRate = 8;
+  public play: boolean;
+  public movieUrl;
+  @ViewChild('details') details;
 
   getYoutubeThumbUrlSanitized(url: string) {
     const youtubeThumbUrl = 'https://img.youtube.com/vi/';
