@@ -14,12 +14,6 @@ import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirm
 })
 export class MovieAddingFormComponent implements OnInit {
   public movies: Movie[] = [];
-  // public movieTitle: string;
-  // public movieYear: number;
-  // public movieRating: number;
-  // public movieDescription: string;
-  // public movieUrl: string;
-  // public movieId: number;
 
   public categories: Category[] = [];
   public currentMovie: Movie;

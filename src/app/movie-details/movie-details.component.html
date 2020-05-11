@@ -4,7 +4,7 @@
     <div class="w3-display-left w3-padding w3-hide-small">
       <div class=" w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large back-size">
         <h1 class="w3-xlarge w3-text-red">{{ movie.title }}</h1>
-        <p>Year: {{movie.year}} Rating: {{movie.rating}}</p>
+        <p>Year: {{movie.year}}/ Rating: {{movie.rating}}/ Total Raters: {{movie.raterTotal}}</p>
         <hr class="w3-opacity">
         <p>Description: {{ movie.description }}</p>
         <ngb-rating [(rate)]="currentRate">
@@ -13,14 +13,11 @@
           </ng-template>
         </ngb-rating>
         <hr>
-        <pre>Rate: <b>{{currentRate}}</b></pre>
-
-        <p><button class="w3-button w3-block w3-red w3-round"
-            onclick="document.getElementById('download').style.display='block'">Rate <i class="fa fa-android"></i>
-            <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+        <p><button class="w3-button w3-block w3-red w3-round" (click)="rate()">Rate <i class="fa"></i>
+            <i class="fa"></i> <i class="fa"></i></button></p>
         <p><button class="w3-button w3-block w3-red w3-round" routerLink="/playing-movies/{{ movie.url }}">Play
-            <i class="fa fa-android"></i>
-            <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+            <i class="fa"></i>
+            <i class="fa"></i> <i class="fa"></i></button></p>
       </div>
     </div>
   </div>

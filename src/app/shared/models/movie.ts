@@ -8,4 +8,5 @@ export class Movie {
   public rating: number;
   public url: string;
   public id?: number;
+  public raterTotal?: number;
 }

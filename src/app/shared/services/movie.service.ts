@@ -68,4 +68,9 @@ export class MovieService {
     const url = `${this.moviesUrl}/${movie.id}`;
     return this.http.put(url, movie, this.httpOptions);
   }
+  /** PUT: update the movie on the server */
+  rateMovie(movie: Movie, currentRate: number): Observable<any> {
+    const url = `${this.moviesUrl}/rate/${movie.id}/?currentRate=${currentRate}`;
+    return this.http.put(url, movie);
+  }
 }

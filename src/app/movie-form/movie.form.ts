@@ -16,13 +16,10 @@ export class MovieForm extends FormGroup {
       ]),
       rating: new FormControl(undefined, [
         Validators.required,
-        Validators.min(0),
-        Validators.max(10),
+        // Validators.min(0),
+        // Validators.max(10),
       ]),
-      description: new FormControl(undefined, [
-        Validators.required,
-        Validators.maxLength(25),
-      ]),
+      description: new FormControl(undefined, [Validators.required]),
       url: new FormControl(undefined, [Validators.required]),
       category: new FormControl(undefined, [Validators.required]),
     });
