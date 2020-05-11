@@ -5,7 +5,8 @@ export class Movie {
   public category: Category;
   public description: string;
   public year: number;
-  public rating: number;
+  public rating?: number;
   public url: string;
   public id?: number;
+  public raterTotal?: number;
 }
