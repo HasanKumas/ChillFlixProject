@@ -1,1 +1,79 @@
+/* Updated css for nav bar  */
 
+.header {
+    /* padding: 20px 20px 0 20px; */
+    padding: 10px 20px 0px 20px;
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "nt mn mn sb . . . ";
+    /* background-color: var(--primary); */
+    background-color: #222;
+    width: 100%;
+    margin-bottom: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.chillflixLogo {
+    background-image: url(./chillflix_logo.png);
+    background-repeat: no-repeat;
+    background-size: 6em;
+    grid-area: nt;
+    font-size: 1.5em;
+    object-fit: cover;
+    width: 230px;
+    max-height: 100%;
+    padding-left: 30px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+#logo {
+    color: #E50914;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu {
+    padding: 0px;
+    padding-right: 20px;
+    background-color: rgba(15, 15, 15, 0.517);
+}
+
+.dropdown-menu :hover {
+    color: black;
+    background-color: whitesmoke;
+    /* padding-right: 0px; */
+}
+
+.main-nav {
+    grid-area: mn;
+    /* padding: 5px 30px 0 20px; */
+    margin-bottom: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 20px;
+}
+
+.sub-nav {
+    grid-area: sb;
+    padding: 5px 40px 0 40px;
+}
+
+.sub-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.sub-nav a:hover {
+    /* color: var(--dark); */
+    color: whitesmoke;
+}

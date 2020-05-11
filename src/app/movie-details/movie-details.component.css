@@ -1,52 +1,67 @@
 .outer-div {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .inner-div {
-  display: inline-block;
-  margin-top: 1px;
-  padding: 3px;
-  text-align: left;
+    display: inline-block;
+    margin-top: 1px;
+    padding: 3px;
+    text-align: left;
 }
 
 .selectedMovieInfo {
-  text-decoration-color: darkgoldenrod;
-  background-color: blue;
-  opacity: 0.5;
+    text-decoration-color: darkgoldenrod;
+    background-color: blue;
+    opacity: 0.5;
 }
 
 .back-size {
-  height: 10cm;
-  width: 10cm;
-  margin-top: 1px;
-  overflow: hidden;
-  display: inline-block;
-  margin-top: 3px;
-  padding-top: 3px;
-  text-align: left;
-  position: static;
-  vertical-align: middle;
+    height: 10cm;
+    width: 10cm;
+    margin-top: 1px;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 3px;
+    padding-top: 3px;
+    text-align: left;
+    position: static;
+    vertical-align: middle;
 }
 
 .star {
-  font-size: 1.5rem;
-  color: #b0c4de;
+    font-size: 1.5rem;
+    color: #b0c4de;
 }
 
 .filled {
-  color: #ff781e;
+    color: #ff781e;
 }
 
 .bad {
-  color: #deb0b0;
+    color: #deb0b0;
 }
 
 .filled.bad {
-  color: #ff1e1e;
+    color: #ff1e1e;
 }
 
 .mySlides {
-  width: 560;
-  height: 415;
+    width: 560;
+    height: 415;
+}
+
+
+/* buttons */
+
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    padding: 6px 0px;
+    border: 2px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    margin: 10px;
 }

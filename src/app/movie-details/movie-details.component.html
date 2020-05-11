@@ -1,29 +1,32 @@
-<div #details class="outer-div d-flex justify-content-center align-items-center"
-  [ngStyle]="{background: getYoutubeThumbUrlSanitized(movie.url)}">
-  <div class="mySlides w3-animate-opacity">
-    <div class="w3-display-left w3-padding w3-hide-small">
-      <div class=" w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large back-size">
-        <h1 class="w3-xlarge w3-text-red">{{ movie.title }}</h1>
-        <p>Year: {{movie.year}} Rating: {{movie.rating}}</p>
-        <hr class="w3-opacity">
-        <p>Description: {{ movie.description }}</p>
-        <ngb-rating [(rate)]="currentRate">
-          <ng-template let-fill="fill" let-index="index">
-            <span class="star" [class.filled]="fill === 100" [class.bad]="index < 0">&#9733;</span>
-          </ng-template>
-        </ngb-rating>
-        <hr>
-        <pre>Rate: <b>{{currentRate}}</b></pre>
+<div #details class="outer-div d-flex justify-content-center align-items-center" [ngStyle]="{background: getYoutubeThumbUrlSanitized(movie.url)}">
+    <div class="mySlides w3-animate-opacity">
+        <div class="w3-display-left w3-padding w3-hide-small">
+            <div class=" w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large back-size">
+                <h1 class="w3-xlarge w3-text-red">{{ movie.title }}</h1>
+                <p class="lead">Year: {{movie.year}} - Rating: {{movie.rating}}</p>
+                <hr class="my-2 w3-opacity">
+                <h5>Description: </h5>
+                <p class="lead">{{ movie.description }}</p>
+                <div>
 
-        <p><button class="w3-button w3-block w3-red w3-round"
-            onclick="document.getElementById('download').style.display='block'">Rate <i class="fa fa-android"></i>
-            <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
-        <p><button class="w3-button w3-block w3-red w3-round" routerLink="/playing-movies/{{ movie.url }}">Play
-            <i class="fa fa-android"></i>
-            <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
-      </div>
+                    <ngb-rating [(rate)]="currentRate">
+                        <ng-template let-fill="fill" let-index="index">
+                            <span class="star" [class.filled]="fill === 100" [class.bad]="index < 0">&#9733;</span>
+                        </ng-template>
+                    </ngb-rating>
+                    <pre>Rate: <b>{{currentRate}}</b></pre>
+
+                    <hr>
+                </div>
+
+                <!-- <p><button class="w3-button w3-block w3-red w3-round" onclick="document.getElementById('download').style.display='block'">Rate <i class="fas fa-star-half-alt"></i></button></p> -->
+                <!-- <p><button class="w3-button w3-block w3-red w3-round">Rate <i class="fas fa-star-half-alt"></i></button></p> -->
+                <button id="rateButton" class="btn btn-warning btn-circle">Rate <i class="fas fa-star-half-alt"></i></button>
+                <button id="playButton" class="btn btn-success btn-circle" routerLink="/playing-movies/{{ movie.url }}">Play
+            <i class="fa fa-play"></i></button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
