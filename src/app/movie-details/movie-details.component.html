@@ -4,7 +4,7 @@
             <div class=" w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large back-size">
                 <h1 class="w3-xlarge w3-text-red">{{ movie.title }}</h1>
                 <p class="lead">Year: {{movie.year}} - Rating: {{movie.rating}} - Total Raters: {{movie.raterTotal}}</p>
-                <hr class="my-2 w3-opacity"> 
+                <hr class="my-2 w3-opacity">
                 <h5>Description: </h5>
                 <p class="lead">{{ movie.description }}</p>
                 <div>
@@ -14,7 +14,7 @@
                             <span class="star" [class.filled]="fill === 100" [class.bad]="index < 0">&#9733;</span>
                         </ng-template>
                     </ngb-rating>
-                    
+
                     <hr>
                 </div>
 
@@ -25,7 +25,7 @@
             <i class="fa fa-play"></i></button>
             </div>
         </div>
-<!-- <div #details class="outer-div d-flex justify-content-center align-items-center"
+        <!-- <div #details class="outer-div d-flex justify-content-center align-items-center"
   [ngStyle]="{background: getYoutubeThumbUrlSanitized(movie.url)}">
   <div class="mySlides w3-animate-opacity">
     <div class="w3-display-left w3-padding w3-hide-small">

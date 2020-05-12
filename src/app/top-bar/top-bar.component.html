@@ -19,18 +19,19 @@
                     <a *ngFor="let category of categories" class="dropdown-item" [routerLink]="['/categories/', category.id]">{{category.name}}</a>
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]=" [ 'categories'] ">Category Management</a>
+            <!-- <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['categories']">Category Management</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="[ 'movies', 'add'] ">Movie Management</a>
-            </li>
+                <a class="nav-link" [routerLink]="['movies', 'add']">Movie Management</a>
+            </li> -->
         </ul>
-        <div id="search-component ">
+        <div id="search-component">
             <app-movie-search></app-movie-search>
         </div>
-        <div id="login-component ">
-            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Admin Login</button>
+        <div id="login-component">
+            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']" *ngIf="!loginStatus" (click)="getLoginStatus()">Admin Login</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="loginStatus" (click)="logout()">Logout</button>
         </div>
     </div>
 </nav>

@@ -14,11 +14,11 @@ export class MovieForm extends FormGroup {
         Validators.min(1900),
         Validators.max(new Date().getFullYear()),
       ]),
-      rating: new FormControl(undefined, [
-        Validators.required,
-        // Validators.min(0),
-        // Validators.max(10),
-      ]),
+      // rating: new FormControl(undefined, [
+      //   Validators.required,
+      //   // Validators.min(0),
+      //   // Validators.max(10),
+      // ]),
       description: new FormControl(undefined, [Validators.required]),
       url: new FormControl(undefined, [Validators.required]),
       category: new FormControl(undefined, [Validators.required]),
