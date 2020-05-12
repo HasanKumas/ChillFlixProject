@@ -19,6 +19,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { ConfirmationModalComponent } from './modals/confirmation-modal/confirmation-modal.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
 import { MoviePlayingComponent } from './movie-playing/movie-playing.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { MoviePlayingComponent } from './movie-playing/movie-playing.component';
     ConfirmationModalComponent,
     MovieFormComponent,
     MoviePlayingComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
