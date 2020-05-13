@@ -1,9 +1,8 @@
-/* MovieSearch private styles */
 .search-result li {
-  /* border-bottom: 1px solid gray;
+  border-bottom: 1px solid gray;
   border-left: 1px solid gray;
-  border-right: 1px solid gray; */
-  width: 195px;
+  border-right: 1px solid gray;
+  width: 200px;
   height: 30px;
   padding: 5px;
   background-color: white;
@@ -12,32 +11,37 @@
 }
 
 .search-result li:hover {
-  background-color: #607D8B;
+  background-color: #607d8b;
 }
 
 .search-result li a {
   color: #888;
-  display: inline-flex;
+  display: list-item;
   text-decoration: none;
 }
 
 .search-result li a:hover {
   color: white;
 }
+
 .search-result li a:active {
   color: white;
 }
+
 #search-box {
   width: 200px;
   height: 40px;
 }
 
+#searchListBox {
+  width: 200px;
+  height: 40px;
+}
 
 ul.search-result {
   margin-top: 0;
   padding-left: 0;
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
