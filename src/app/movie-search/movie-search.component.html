@@ -2,9 +2,9 @@
   <input #searchBox id="search-box" (input)="search(searchBox.value)" class="form-control mr-sm-2" type="search"
     placeholder="Search" />
 
-  <ul *ngIf="searchBox.value" class="search-result">
-    <li *ngFor="let movie of movies$ | async">
-      <a (click)="searchBoxReset()" routerLink="/search/{{ movie.id }}">
+  <ul #searchListBox *ngIf="searchBox.value" data-toggle="dropdown" class="list-group search-result">
+    <li *ngFor="let movie of movies$ | async" class="list-group-item">
+      <a (click)="searchBoxReset()" routerLink="/search/{{ movie.id }}" nav-link dropdown-toggle>
         {{ movie.title }}
       </a>
     </li>
