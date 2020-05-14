@@ -39,18 +39,21 @@
                                 <div>
                                     <p>Title: </p>
                                     <p>Year: </p>
-                                    <p>Rating: </p>
+                                    <p>Category: </p>
+                                    <p>YouTube Video ID: </p>
+                                    <p>Description: </p>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
                                     <fieldset #movieInfoInputs disabled="true">
                                         <!-- <p (keyup)="changeValue(id, 'title', $event)" (blur)="updateList(id, 'title', $event)" contenteditable="true">{{movie.title}}</p> -->
-                                        <input class="form-control form-control-sm" contenteditable="true" value={{movie.year}}>
                                         <input class="form-control form-control-sm" contenteditable="true" value={{movie.title}}>
-                                        <input class="form-control form-control-sm" contenteditable="true" value={{movie.category}}>
+                                        <input class="form-control form-control-sm" contenteditable="true" value={{movie.year}}>
+                                        <input class="form-control form-control-sm" contenteditable="true" value={{movie.category.name}}>
                                         <input class="form-control form-control-sm" contenteditable="true" value={{movie.url}}>
-                                        <input class="form-control form-control-sm" contenteditable="true" value={{movie.description}}>
+                                        <textarea class="form-control form-control-sm" contenteditable="true" value={{movie.description}}></textarea>
+                                        <!-- <p role="textbox" class="form-control form-control-sm" contenteditable="true" value={{movie.description}}></p> -->
                                         <!-- <p (keyup)="changeValue(id, 'year', $event)" (blur)="updateList(id, 'year', $event)" contenteditable="true">{{movie.year}}</p>
                                     <p (keyup)="changeValue(id, 'rating', $event)" (blur)="updateList(id, 'rating', $event)" contenteditable="true">{{movie.rating}}</p> -->
                                     </fieldset>
@@ -58,12 +61,9 @@
                             </td>
                             <td>
                                 <div>
-                                    <p><button type="button" class="btn btn-danger" title="delete movie" (click)="delete(movie)"><i
-                        class="far fa-trash-alt"></i></button></p>
-                                    <p><button type="button" class="btn btn-warning" *ngIf="movieTitleInput.disabled===false" (click)="movieTitleInput.disabled=false" title="edit movie"><i class="fas fa-check"></i></button>
-                                    </p>
-                                    <p><button type="button" class="btn btn-warning" *ngIf="movieTitleInput.disabled===true" (click)="movieTitleInput.disabled=false" title="edit movie"><i class="fas fa-edit"></i></button>
-                                    </p>
+                                    <p><button type="button" class="btn btn-danger" title="delete movie" (click)="delete(movie)"><i class="far fa-trash-alt"></i></button></p>
+                                    <p><button type="button" class="btn btn-warning" *ngIf="movieInfoInputs.disabled===true" (click)="movieInfoInputs.disabled=false" title="Edit Details"><i class="fas fa-edit"></i></button></p>
+                                    <p><button type="button" class="btn btn-success" *ngIf="movieInfoInputs.disabled===false" (click)="movieInfoInputs.disabled=true" title="Confirm Edit"><i class="fas fa-check"></i></button></p>
                                     <!-- <p><button type="button" class="btn btn-warning" title="edit movie" (click)="edit(movie)"><i class="fas fa-edit"></i></button></p> -->
                                     <!-- <p><button type="button" class="btn btn-warning" title="edit movie" (edit)="editMovie($event)" [editableMovie]="currentMovie"><i class="fas fa-edit"></i></button></p> -->
                                 </div>
@@ -216,37 +216,3 @@
 </div> -->
 
 <!-- <button type="button" class="btn btn-danger" title="edit movie" (click)="edit(movie)">_/</button> -->
-
-
-
-<!-- <div class="div-inner2">
-            <div class="list-group">
-                <table class="table table-hover">
-                    <thead style="background-color: saddlebrown; color: floralwhite; font-size: 6mm;">
-                        <tr>
-                            <th scope="col">Thumbnail</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">Rating</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody style="background-color: rgb(57, 72, 87); color: floralwhite; font-size: 5mm;">
-                        <tr *ngFor="let movie of movies">
-                            <th scope="row">
-                                <app-movie [movie]="movie" style="max-height: 0.7cm; max-width: 1cm;"></app-movie>
-                            </th>
-                            <td>{{movie.title}}</td>
-                            <td>{{movie.category.name}}</td>
-                            <td>{{movie.year}}</td>
-                            <td>{{movie.rating}}</td>
-                            <td><button type="button" class="btn btn-danger" title="delete movie" (click)="delete(movie)">x</button></td>
-                            <td><button type="button" class="btn btn-danger" title="edit movie" (click)="edit(movie)">_/</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div> -->

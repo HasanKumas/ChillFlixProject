@@ -12,3 +12,9 @@
   width: 100%;
 
 } */
+
+.form-control-sm {
+    margin: 0px 0px 8px;
+    background-color: #303030;
+    color: whitesmoke;
+}
