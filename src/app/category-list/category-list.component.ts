@@ -38,5 +38,6 @@ export class CategoryListComponent implements OnInit {
   }
   sendCurrent(currentMovie: Movie) {
     this.currentMovie = currentMovie;
+    window.scrollTo(0, 0);
   }
 }

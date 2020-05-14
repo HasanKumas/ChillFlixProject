@@ -2,12 +2,23 @@
   width: 100%;
   text-align: center;
 }
+
 .inner-div {
   display: inline-block;
   margin: 0 auto;
   padding: 3px;
   text-align: left;
 }
+
 .back-size {
   max-height: 25cm;
+}
+
+.parallax {
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100%;
 }
