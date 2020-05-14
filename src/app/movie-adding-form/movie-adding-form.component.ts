@@ -27,10 +27,25 @@ export class MovieAddingFormComponent implements OnInit {
 
   // adds a movie to backend
   public addMovie(movie: Movie): void {
-    this.movieService.addMovie(movie).subscribe((newMovie) => {
-      alert(`The movie has been added`);
-      this.movies.push(newMovie);
-    });
+    const modal = this.ngbModalService.open(ConfirmationModalComponent);
+    const modalComponent = modal.componentInstance as ConfirmationModalComponent;
+
+    modalComponent.text = `Are you sure you want to add movie
+    ${movie.title}?`;
+
+    modalComponent.title = 'Are you sure?';
+
+    modal.result.then(
+      () => {
+        this.movieService.addMovie(movie).subscribe((newMovie) => {
+          alert(`The movie has been added`);
+          this.movies.push(newMovie);
+        });
+      },
+      () => {
+        // Rejected the operation.
+      }
+    );
   }
 
   // initialize movies and categories
@@ -78,11 +93,28 @@ export class MovieAddingFormComponent implements OnInit {
 
   // save changes to backend
   editMovie(movie: Movie) {
-    this.movieService.updateMovie(movie).subscribe(() => {
-      alert(`The movie has been updated!`);
-      const itemIndex = this.movies.findIndex((item) => item.id === movie.id);
-      this.movies[itemIndex] = movie;
-      this.currentMovie = undefined;
-    });
+    const modal = this.ngbModalService.open(ConfirmationModalComponent);
+    const modalComponent = modal.componentInstance as ConfirmationModalComponent;
+
+    modalComponent.text = `Are you sure you want to update movie
+    ${movie.title}?`;
+
+    modalComponent.title = 'Are you sure?';
+
+    modal.result.then(
+      () => {
+        this.movieService.updateMovie(movie).subscribe(() => {
+          alert(`The movie has been updated!`);
+          const itemIndex = this.movies.findIndex(
+            (item) => item.id === movie.id
+          );
+          this.movies[itemIndex] = movie;
+          this.currentMovie = undefined;
+        });
+      },
+      () => {
+        // Rejected the operation.
+      }
+    );
   }
 }

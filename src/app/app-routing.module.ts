@@ -15,20 +15,20 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: 'movies', component: MovieListComponent },
   {
-    path: 'login/admin/movies/add',
+    path: 'movies/add',
     component: MovieAddingFormComponent,
     // canActivate: [LoginGuard],
   },
   { path: 'movies/:movie.id', component: MovieDetailsComponent },
   { path: 'playing-movies/:id', component: MoviePlayingComponent },
   {
-    path: 'login/admin/categories',
+    path: 'categories',
     component: CategoryAddingComponent,
     // canActivate: [LoginGuard],
   },
   { path: 'categories/:category.id', component: CategoryListComponent },
   { path: 'search/:movie.id', component: SearchResultsComponent },
-  { path: 'login/admin', component: AdminComponent, canActivate: [LoginGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'movies', pathMatch: 'full' },
 ];
