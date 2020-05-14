@@ -28,7 +28,7 @@
             <app-movie-adding-form></app-movie-adding-form>
         </div>
         <div class="tab-pane fade" id="movieAddingFrom">
-            <app-movie-form></app-movie-form>
+            <app-movie-form (save)="addMovie($event)"></app-movie-form>
         </div>
 
     </div>
