@@ -43,18 +43,21 @@
                                 </div>
                             </td>
                             <td>
-                                <div>
+                                    <div class="form-group">
+                                <fieldset #movieInfoInputs disabled="true">
                                     <!-- <p (keyup)="changeValue(id, 'title', $event)" (blur)="updateList(id, 'title', $event)" contenteditable="true">{{movie.title}}</p> -->
-                                    <input #movieTitleInput (keyup)="edit(movie)" contenteditable="true" disabled="true">
-                                    <p (keyup)="changeValue(id, 'year', $event)" (blur)="updateList(id, 'year', $event)" contenteditable="true">{{movie.year}}</p>
-                                    <p (keyup)="changeValue(id, 'rating', $event)" (blur)="updateList(id, 'rating', $event)" contenteditable="true">{{movie.rating}}</p>
-                                </div>
+                                    <!-- <input #movieTitleInput (keyup)="edit(movie)" contenteditable="true" value={{movie.title}} disabled="true"> -->
+                                    <input class="form-control form-control-sm" (keyup)="edit(movie)" contenteditable="true" value={{movie.title}}><br/>
+                                    <input class="form-control form-control-sm" (keyup)="changeValue(id, 'year', $event)" (blur)="updateList(id, 'year', $event)" contenteditable="true" value={{movie.year}}><br/>
+                                    <input class="form-control form-control-sm" (keyup)="changeValue(id, 'rating', $event)" (blur)="updateList(id, 'rating', $event)" contenteditable="true" value={{movie.rating}}><br/>
+                                </fieldset>
+                                    </div>
                             </td>
                             <td>
                                 <div>
                                     <p><button type="button" class="btn btn-danger" title="delete movie" (click)="delete(movie)"><i class="far fa-trash-alt"></i></button></p>
-                                    <p><button type="button" class="btn btn-warning" *ngIf="movieTitleInput.disabled===false" (click)="movieTitleInput.disabled=false" title="edit movie"><i class="fas fa-check"></i></button></p>
-                                    <p><button type="button" class="btn btn-warning" *ngIf="movieTitleInput.disabled===true" (click)="movieTitleInput.disabled=false" title="edit movie"><i class="fas fa-edit"></i></button></p>
+                                    <!-- <p><button type="button" class="btn btn-warning" *ngIf="movieTitleInput.disabled===false" (click)="movieTitleInput.disabled=false" title="edit movie"><i class="fas fa-check"></i></button></p> -->
+                                    <p><button type="button" class="btn btn-warning" *ngIf="movieInfoInputs.disabled===true" (click)="movieInfoInputs.disabled=false" title="edit movie"><i class="fas fa-edit"></i></button></p>
                                     <!-- <p><button type="button" class="btn btn-warning" title="edit movie" (click)="edit(movie)"><i class="fas fa-edit"></i></button></p> -->
                                     <!-- <p><button type="button" class="btn btn-warning" title="edit movie" (edit)="editMovie($event)" [editableMovie]="currentMovie"><i class="fas fa-edit"></i></button></p> -->
                                 </div>
