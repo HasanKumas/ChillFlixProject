@@ -31,7 +31,7 @@
 }
 
 #logo {
-    color: #E50914;
+    color: #e50914;
     height: 200px;
     margin: 0;
     padding: 0;
@@ -47,6 +47,10 @@
     color: black;
     background-color: whitesmoke;
     /* padding-right: 0px; */
+}
+
+#adminDropDown {
+    padding-right: 0px;
 }
 
 .main-nav {
