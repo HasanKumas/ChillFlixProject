@@ -13,6 +13,7 @@ import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirm
   styleUrls: ['./movie-adding-form.component.css'],
 })
 export class MovieAddingFormComponent implements OnInit {
+  editField: string;
   public isCollapsed = true;
   public movies: Movie[] = [];
 
@@ -117,4 +118,16 @@ export class MovieAddingFormComponent implements OnInit {
       }
     );
   }
+
+  //Editable table:
+  //To update the field
+  updateList(id: number, property: string, event: any) {
+      const editField = event.target.textContent;
+      this.currentMovie[id][property] = editField;
+  }
+
+  changeValue(id: number, property: string, event: any) {
+    this.editField = event.target.textContent;
+   }
+
 }

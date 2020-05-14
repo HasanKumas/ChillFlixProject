@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../shared/services/category.service';
 import { Category } from '../shared/models/category';
 import { LoginService } from '../shared/services/login.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,24 +10,17 @@ import { LoginService } from '../shared/services/login.service';
   styleUrls: ['./top-bar.component.css'],
 })
 export class TopBarComponent implements OnInit {
-  public loginStatus: boolean;
+  // public loginStatus: boolean;
+  public loggedIn$: Observable<boolean>;
+  public username: string;
   categories: Category[];
   constructor(
     private readonly categoryService: CategoryService,
     private readonly loginService: LoginService
   ) {}
 
-  public getLoginStatus(): void {
-    this.loginStatus = this.loginService.loggedIn;
-    alert(this.loginStatus);
-  }
-
-  // public login(): void {
-  //   this.loginStatus = this.loginService.login();
-  // }
-
   public logout(): void {
-    this.loginStatus = this.loginService.logout();
+    this.loginService.logout();
   }
 
   ngOnInit() {
@@ -34,5 +28,7 @@ export class TopBarComponent implements OnInit {
     categories$.subscribe((categories) => {
       this.categories = categories;
     });
+    this.loggedIn$ = this.loginService.loggedIn$;
+    this.username = this.loginService.username;
   }
 }

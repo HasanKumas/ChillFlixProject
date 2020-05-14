@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../shared/models/category';
 import { CategoryService } from '../shared/services/category.service';
+import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirmation-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-category-adding',
@@ -12,14 +14,14 @@ export class CategoryAddingComponent implements OnInit {
   public categoryN: string;
   public categoryId: number;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private readonly ngbModalService: NgbModal
+  ) {}
 
   ngOnInit() {
     this.getCategories();
   }
-  // ngOnChange(){
-  //   this.getCategories();
-  // }
 
   getCategories(): void {
     this.categoryService
@@ -39,8 +41,23 @@ export class CategoryAddingComponent implements OnInit {
   }
 
   delete(category: Category): void {
-    this.categoryService.deleteCategory(category).subscribe(() => {
-      this.categories = this.categories.filter((h) => h !== category);
-    });
+    const modal = this.ngbModalService.open(ConfirmationModalComponent);
+    const modalComponent = modal.componentInstance as ConfirmationModalComponent;
+
+    modalComponent.text = `Are you sure you want to delete category
+    ${category.name} with id ${category.id}?`;
+
+    modalComponent.title = 'Are you sure?';
+
+    modal.result.then(
+      () => {
+        this.categoryService.deleteCategory(category).subscribe(() => {
+          this.categories = this.categories.filter((h) => h !== category);
+        });
+      },
+      () => {
+        // Rejected the operation.
+      }
+    );
   }
 }
