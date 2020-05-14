@@ -33,11 +33,25 @@ export class CategoryAddingComponent implements OnInit {
     const newCategory: Category = {
       name: this.categoryN,
     };
+    const modal = this.ngbModalService.open(ConfirmationModalComponent);
+    const modalComponent = modal.componentInstance as ConfirmationModalComponent;
 
-    this.categoryService.addCategory(newCategory).subscribe((category) => {
-      alert(`A category with id ${category.id} has been added`);
-      this.categories.push(category);
-    });
+    modalComponent.text = `Are you sure you want to add category
+    ${newCategory.name}?`;
+
+    modalComponent.title = 'Are you sure?';
+
+    modal.result.then(
+      () => {
+        this.categoryService.addCategory(newCategory).subscribe((category) => {
+          alert(`A category with id ${category.id} has been added`);
+          this.categories.push(category);
+        });
+      },
+      () => {
+        // Rejected the operation.
+      }
+    );
   }
 
   delete(category: Category): void {
