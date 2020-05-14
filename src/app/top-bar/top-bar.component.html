@@ -1,41 +1,38 @@
 <!-- Updated nav-bar  -->
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #0f0303;">
-  <img class="chillflixLogo">
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <img class="chillflixLogo">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button> -->
 
-  <div class="main-nav collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+    <div class="main-nav collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Movies</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/']">All Categories</a>
-          <a *ngFor="let category of categories" class="dropdown-item"
-            [routerLink]="['/categories/', category.id]">{{category.name}}</a>
-        </div>
-      </li>
-      <!-- <li class="nav-item active">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/']">All Categories</a>
+                    <a *ngFor="let category of categories" class="dropdown-item" [routerLink]="['/categories/', category.id]">{{category.name}}</a>
+                </div>
+            </li>
+            <!-- <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['categories']">Category Management</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['movies', 'add']">Movie Management</a>
             </li> -->
-    </ul>
-    <div id="search-component">
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-      <app-movie-search style="position: absolute; top: .9cm; right: 3.5cm;"></app-movie-search>
+        </ul>
+        <div id="search-component">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+            <app-movie-search style="position: absolute; top: .9cm; right: 3.5cm;"></app-movie-search>
+        </div>
+        <div id="login-component">
+            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']" *ngIf="!(loggedIn$ | async)">Admin Login</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/']" *ngIf="loggedIn$ | async" (click)="logout()">Logout</button>
+        </div>
     </div>
-    <div id="login-component">
-      <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']" *ngIf="!loginStatus"
-        (click)="getLoginStatus()">Admin Login</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="loginStatus" (click)="logout()">Logout</button>
-    </div>
-  </div>
 </nav>
