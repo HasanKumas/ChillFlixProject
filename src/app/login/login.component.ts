@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../shared/services/login.service';
 import { Observable } from 'rxjs';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,6 +27,7 @@ export class LoginComponent {
 
   public login(): void {
     // this.loginService.login(this.username, this.password);
+
     this.loginService
       .login(this.username, this.password)
       .subscribe(() => this.router.navigate(['/login/admin']));
