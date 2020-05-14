@@ -1,12 +1,17 @@
-<div class="container-fluid main">
-  <app-movie-details *ngIf="currentMovie" [movie]= "currentMovie"></app-movie-details>
+<div class="parallax" *ngIf="currentMovie"
+  style="background-image: url(https://img.youtube.com/vi/{{currentMovie.url}}/maxresdefault.jpg);">
+  <app-movie-details [movie]="currentMovie"></app-movie-details>
+</div>
 
-  <!-- <img  *ngFor="let movie of movies" width="360" height="215" src="https://img.youtube.com/vi/{{movie.url}}/maxresdefault.jpg"/> -->
-  <div class="wrapper" >
-    <section id="section" >
-      <div class="item"  *ngFor="let movie of movies; let i = index">
-          <app-movie [movie]= "movie" (click) = "sendCurrent(movie)"></app-movie>
+<div #scrollToTop class="main">
+  <div class="container-fluid">
+    <h1 style="text-align: left; color: white; size: 0.2cm;">{{ currentMovie.category.name | titlecase }}</h1>
+    <div class="ngcontainer" *ngFor="let movie of movies; let i = index">
+      <div class="item">
+        <img (click)="sendCurrent(movie)" width="360" height="215"
+          src="https://img.youtube.com/vi/{{ movie.url }}/maxresdefault.jpg" />
+        <div class="top-left">ChillFlix</div>
       </div>
-    </section>
+    </div>
   </div>
 </div>
