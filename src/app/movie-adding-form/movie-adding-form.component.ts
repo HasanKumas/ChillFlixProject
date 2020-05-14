@@ -119,16 +119,14 @@ export class MovieAddingFormComponent implements OnInit {
     );
   }
 
-  //Editable table:
-  //To update the field
+  // Editable table:
+  // To update the field
+  // updateList(id: number, property: string, event: any) {
+  //     const editField = event.target.textContent;
+  //     this.currentMovie[id][property] = editField;
+  // }
 
-  updateList(id: number, property: string, event: any) {
-      const editField = event.target.textContent;
-      this.currentMovie[id][property] = editField;
-  }
-
-  changeValue(id: number, property: string, event: any) {
-    this.editField = event.target.textContent;
-   }
-
+  // changeValue(id: number, property: string, event: any) {
+  //   this.editField = event.target.textContent;
+  //  }
 }
