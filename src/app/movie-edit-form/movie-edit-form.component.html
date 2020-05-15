@@ -1,0 +1,32 @@
+<th scope="row">
+    <app-movie [movie]="movie"></app-movie>
+</th>
+<td>
+    <div>
+        <p>Title: </p>
+        <p>Year: </p>
+        <p>Category: </p>
+        <p>YouTube Video ID: </p>
+        <p>Description: </p>
+    </div>
+</td>
+<td>
+    <div class="form-group">
+        <fieldset [disabled]="!editing">
+            <input class="form-control form-control-sm" contenteditable="true" [(ngModel)]="newMovie.title">
+            <input class="form-control form-control-sm" contenteditable="true" [(ngModel)]="newMovie.year">
+            <select class="form-control form-control-sm" id="exampleSelect1" [compareWith]="compareFn" [(ngModel)]="newMovie.category">
+              <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+            </select>
+            <input class="form-control form-control-sm" contenteditable="true" [(ngModel)]="newMovie.url">
+            <textarea class="form-control form-control-sm" contenteditable="true" [(ngModel)]="newMovie.description"></textarea>
+        </fieldset>
+    </div>
+</td>
+<td>
+    <div>
+        <p><button type="button" class="btn btn-danger" title="delete movie" (click)="onDeleteClick()"><i class="far fa-trash-alt"></i></button></p>
+        <p><button type="button" class="btn btn-warning" *ngIf="!editing" title="Edit Details" (click)="onEditClick()"><i class="fas fa-edit"></i></button></p>
+        <p><button type="button" class="btn btn-success" *ngIf="editing" title="Confirm Edit" (click)="onSaveClick()"><i class="fas fa-check"></i></button></p>
+    </div>
+</td>
