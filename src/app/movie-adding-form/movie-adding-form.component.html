@@ -1,4 +1,5 @@
 <div class="container jumbotron">
+
     <div class="div-outer">
         <div class="div-inner1">
 
@@ -16,6 +17,7 @@
                     </thead>
                     <tbody>
                         <tr app-movie-edit-form *ngFor="let movie of movies" [movie]="movie" [categories]="categories" (delete)="onDelete(movie)" (update)="onUpdate($event)">
+
                         </tr>
                     </tbody>
                 </table>

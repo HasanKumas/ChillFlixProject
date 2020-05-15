@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieAddingFormComponent implements OnInit {
   editField: string;
+
   public isCollapsed = true;
   public movies: Movie[] = [];
 
