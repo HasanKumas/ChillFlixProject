@@ -21,6 +21,7 @@ import { MovieFormComponent } from './movie-form/movie-form.component';
 import { MoviePlayingComponent } from './movie-playing/movie-playing.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { MovieEditFormComponent } from './movie-edit-form/movie-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AdminComponent } from './admin/admin.component';
     MoviePlayingComponent,
     LoginComponent,
     AdminComponent,
+    MovieEditFormComponent,
   ],
   imports: [
     BrowserModule,
