@@ -16,8 +16,8 @@ export class MovieListComponent implements OnInit {
   @ViewChild('scrollToTop') scrollToTop;
 
   constructor(
-    private movieService: MovieService,
-    private categoryService: CategoryService
+    public movieService: MovieService,
+    public categoryService: CategoryService
   ) {}
 
   // public movieSlides = [[]];
