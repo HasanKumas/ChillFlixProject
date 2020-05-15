@@ -29,7 +29,7 @@ export class MovieAddingFormComponent implements OnInit {
   @ViewChild('movieUrlInput') movieUrlInput;
   @ViewChild('movieDescriptionInput') movieDescriptionInput;
 
-  editField: string;
+  public editField: string;
   public isCollapsed = true;
   public movies: Movie[] = [];
 
