@@ -35,7 +35,6 @@ export class MovieEditFormComponent implements OnInit {
 
   // save changes to backend
   onSaveClick() {
-    console.log('inside edit Movie function');
     const modal = this.ngbModalService.open(ConfirmationModalComponent);
     const modalComponent = modal.componentInstance as ConfirmationModalComponent;
 

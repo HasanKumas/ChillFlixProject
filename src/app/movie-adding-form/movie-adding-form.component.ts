@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MovieService } from '../shared/services/movie.service';
 import { Movie } from '../shared/models/movie';
@@ -17,6 +17,7 @@ export class MovieAddingFormComponent implements OnInit {
   editField: string;
 
   public isCollapsed = true;
+  @Input()
   public movies: Movie[] = [];
 
   public categories: Category[] = [];

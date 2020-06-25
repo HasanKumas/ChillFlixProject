@@ -8,28 +8,28 @@
 <div class="container jumbotron">
 
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#categoryForm">Category Management</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#movieList">Movie Management</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#movieAddingFrom">Add Movie</a>
-        </li>
-    </ul>
-    <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active show" id="categoryForm">
-            <app-category-adding></app-category-adding>
-        </div>
-        <!-- <div class="tab-pane fade active show" id="movieForm"> -->
-        <div class="tab-pane fade" id="movieList">
-            <app-movie-adding-form></app-movie-adding-form>
-        </div>
-        <div class="tab-pane fade" id="movieAddingFrom">
-            <app-movie-form (save)="addMovie($event)"></app-movie-form>
-        </div>
-
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#categoryForm">Category Management</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#movieList">Movie Management</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#movieAddingFrom">Add Movie</a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="categoryForm">
+      <app-category-adding></app-category-adding>
     </div>
+    <!-- <div class="tab-pane fade active show" id="movieForm"> -->
+    <div class="tab-pane fade" id="movieList">
+      <app-movie-adding-form [movies]="movies"></app-movie-adding-form>
+    </div>
+    <div class="tab-pane fade" id="movieAddingFrom">
+      <app-movie-form (save)="addMovie($event)"></app-movie-form>
+    </div>
+
+  </div>
 </div>
