@@ -14,7 +14,7 @@ const movies: Movie[] = [
     category: { id: 1 },
     year: 1997,
     rating: 8,
-    description: 'Matrix has a description',
+    description: 'Matrix1 has a description',
     url: 'testURL',
     raterTotal: 1,
   },
@@ -47,7 +47,7 @@ const currentMovie: Movie = {
   category: { id: 1 },
   year: 1997,
   rating: 8,
-  description: 'Matrix has a description',
+  description: 'Matrix1 has a description',
   url: 'testURL',
   raterTotal: 1,
 };
