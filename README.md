@@ -38,3 +38,6 @@ Features:
             2.	Form validation
 
         iv.	Logout
+
+4.  DevOps:
+    a. CI
