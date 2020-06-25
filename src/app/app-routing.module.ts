@@ -17,14 +17,14 @@ const routes: Routes = [
   {
     path: 'login/admin/movies/add',
     component: MovieAddingFormComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   { path: 'movies/:movie.id', component: MovieDetailsComponent },
   { path: 'playing-movies/:id', component: MoviePlayingComponent },
   {
     path: 'login/admin/categories',
     component: CategoryAddingComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   { path: 'categories/:category.id', component: CategoryListComponent },
   { path: 'search/:movie.id', component: SearchResultsComponent },
