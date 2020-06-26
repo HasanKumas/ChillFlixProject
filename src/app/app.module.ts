@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,6 +22,14 @@ import { MoviePlayingComponent } from './movie-playing/movie-playing.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { MovieEditFormComponent } from './movie-edit-form/movie-edit-form.component';
+import { AppConfigService } from './shared/services/app-config.service';
+
+const appInitializerFactory = (appConfig: AppConfigService) => {
+  return () => {
+    // Should be a promise!
+    return appConfig.loadAppConfig();
+  };
+};
 
 @NgModule({
   declarations: [
@@ -51,7 +59,14 @@ import { MovieEditFormComponent } from './movie-edit-form/movie-edit-form.compon
     HttpClientModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: appInitializerFactory,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
