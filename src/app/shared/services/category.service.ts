@@ -3,18 +3,24 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Category } from '../models/category';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  private categoriesUrl = 'http://localhost:8080/api/categories'; // URL to web api
-
+  // private categoriesUrl = 'http://localhost:8080/api/categories'; // URL to web api
+  private categoriesUrl;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    readonly appConfigService: AppConfigService
+  ) {
+    this.categoriesUrl = `${appConfigService.apiUrl}/categories`;
+  }
 
   /** GET categories from the server */
   getCategories(): Observable<Category[]> {

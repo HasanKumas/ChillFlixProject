@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie';
+import { AppConfigService } from './app-config.service';
 
 /**
  * Movie service that keeps track of a list of movies
@@ -11,8 +12,15 @@ import { Movie } from '../models/movie';
   providedIn: 'root',
 })
 export class MovieService {
-  private moviesUrl = 'http://localhost:8080/api/movies'; // URL to web api
-  constructor(private readonly http: HttpClient) {}
+  // private moviesUrl = 'http://localhost:8080/api/movies'; // URL to web api
+  private moviesUrl;
+
+  constructor(
+    private readonly http: HttpClient,
+    readonly appConfigService: AppConfigService
+  ) {
+    this.moviesUrl = `${appConfigService.apiUrl}/movies`;
+  }
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };

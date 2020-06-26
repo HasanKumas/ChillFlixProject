@@ -4,15 +4,24 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AppConfigService } from './app-config.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   public readonly loggedIn$ = new BehaviorSubject<boolean>(false);
   public username = '';
-  private adminUrl = 'http://localhost:8080/api/admin';
+  // private adminUrl = 'http://localhost:8080/api/admin';
+  private adminUrl;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    readonly appConfigService: AppConfigService
+  ) {
+    this.adminUrl = `${appConfigService.apiUrl}/admin`;
+  }
 
   public login(username: string, password: string): Observable<void> {
     const callBack$ = new Subject<void>();
